@@ -7,7 +7,6 @@ import {
   showMessageWithTimeout,
   setMessage,
 } from "../appState/actions"
-import { addSpace } from "../spaces/actions"
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID"
@@ -37,7 +36,6 @@ export const signUp = (name, email, password) => {
         password,
       })
 
-      dispatch(addSpace(response.data.newSpace))
       dispatch(loginSuccess(response.data))
       dispatch(showMessageWithTimeout("success", true, "account created"))
       dispatch(appDoneLoading())

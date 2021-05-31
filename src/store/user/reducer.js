@@ -4,6 +4,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   name: null,
   email: null,
+  space: null,
 }
 
 export default (state = initialState, action) => {
