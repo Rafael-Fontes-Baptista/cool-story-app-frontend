@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 export default function NavbarItem(props) {
   const activeStyle = {
     fontWeight: "bold",
-    backgroundColor: "#ff9d5c",
+    backgroundColor: "#e9ecef",
   }
 
   return (

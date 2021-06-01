@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectAppLoading } from "./store/appState/selectors"
 import { getUserWithStoredToken } from "./store/user/actions"
 import Spaces from "./pages/Spaces"
-import MySpaces from "./pages/MySpaces"
+import MySpace from "./pages/MySpace"
 import SpaceDetails from "./pages/SpaceDetails"
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
       <Switch>
         <Route exact path="/spaces/:spaceId" component={SpaceDetails} />
         <Route exact path="/" component={Spaces} />
-        <Route path="/my-spaces" component={MySpaces} />
+        <Route path="/my-space" component={MySpace} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
       </Switch>

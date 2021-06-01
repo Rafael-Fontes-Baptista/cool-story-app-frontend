@@ -1,6 +1,6 @@
 import { apiUrl } from "../../config/constants"
 import axios from "axios"
-import { selectToken } from "./selectors"
+import { selectToken, selectUser } from "./selectors"
 import {
   appLoading,
   appDoneLoading,
@@ -11,6 +11,7 @@ import {
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID"
 export const LOG_OUT = "LOG_OUT"
+export const SPACE_UPDATED = "SPACE_UPDATED"
 
 const loginSuccess = (userWithToken) => {
   return {
@@ -25,6 +26,11 @@ const tokenStillValid = (userWithoutToken) => ({
 })
 
 export const logOut = () => ({ type: LOG_OUT })
+
+export const spaceUpdated = (space) => ({
+  type: SPACE_UPDATED,
+  payload: space,
+})
 
 export const signUp = (name, email, password) => {
   return async (dispatch, getState) => {
@@ -107,5 +113,34 @@ export const getUserWithStoredToken = () => {
       dispatch(logOut())
       dispatch(appDoneLoading())
     }
+  }
+}
+
+export const updateMySpace = (title, description, backgroundColor, color) => {
+  return async (dispatch, getState) => {
+    const { space, token } = selectUser(getState())
+    dispatch(appLoading())
+
+    const response = await axios.patch(
+      `${apiUrl}/spaces/${space.id}`,
+      {
+        title,
+        description,
+        backgroundColor,
+        color,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    // console.log(response);
+
+    dispatch(
+      showMessageWithTimeout("success", false, "update successfull", 3000)
+    )
+    dispatch(spaceUpdated(response.data.space))
+    dispatch(appDoneLoading())
   }
 }

@@ -11,7 +11,14 @@ import LoggedOut from "./LoggedOut"
 export default function Navigation() {
   const token = useSelector(selectToken)
 
-  const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />
+  const loginLogoutControls = token ? (
+    <>
+      <NavbarItem path="/my-space" linkText="My Space" />
+      <LoggedIn />
+    </>
+  ) : (
+    <LoggedOut />
+  )
 
   return (
     <Navbar bg="light" expand="lg">
@@ -22,7 +29,6 @@ export default function Navigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Spaces" />
-          <NavbarItem path="/my-spaces" linkText="My Spaces" />
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

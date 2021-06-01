@@ -1,0 +1,11 @@
+.MySpace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -2rem;
+  padding: 50px;
+}
+
+.MySpace button {
+  margin: 10px;
+}

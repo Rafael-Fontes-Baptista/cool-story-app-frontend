@@ -12,10 +12,10 @@ export default function SpaceCard(props) {
 
   return (
     <div style={style} className="SpaceCard">
-      <h1>{props.title}</h1>
-      <p>{props.description}</p>
+      <h1 className="SpaceCard_item">{props.title}</h1>
+      <p className="SpaceCard_item">{props.description}</p>
       <Link to={linkString}>
-        <button type="button" className="btn btn-outline-dark">
+        <button type="button" className="btn btn-outline-dark SpaceCard_item">
           Visit Space
         </button>
       </Link>

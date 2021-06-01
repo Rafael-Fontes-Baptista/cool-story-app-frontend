@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { selectSpaces } from "../store/spaces/selectors"
 import { getSpaces } from "../store/spaces/actions"
 import SpaceCard from "./SpaceCard"
+import "./SpacesFeed.css"
 
 export default function SpacesFeed() {
   const dispatch = useDispatch()
@@ -16,7 +17,7 @@ export default function SpacesFeed() {
   }, [dispatch, spaces.length])
 
   return (
-    <div>
+    <div className="SpacesFeed">
       {!spaces ? (
         <p>Loading...</p>
       ) : (

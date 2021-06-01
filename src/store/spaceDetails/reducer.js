@@ -8,8 +8,7 @@ export default function spaceDetailsSliceReducer(state = initialState, action) {
   switch (action.type) {
     case "spaceDetails/loadingData": {
       return {
-        ...state,
-        loading: true,
+        ...initialState,
       }
     }
     case "spaceDetails/spaceFullyFetched": {

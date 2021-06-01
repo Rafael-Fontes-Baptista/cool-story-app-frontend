@@ -1,0 +1,18 @@
+.EditSpaceForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10px 20px;
+  width: 500px;
+  background-color: #efefef;
+}
+
+.EditSpaceForm input,
+.EditSpaceForm textarea {
+  width: 100%;
+}
+
+.mb-3 {
+  width: 100%;
+}

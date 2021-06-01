@@ -8,3 +8,7 @@
 .StoryCard img {
   width: 100%;
 }
+
+.StoryCard_item {
+  margin-top: 10px;
+}

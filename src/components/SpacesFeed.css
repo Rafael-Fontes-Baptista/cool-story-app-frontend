@@ -1,0 +1,4 @@
+.SpacesFeed {
+  display: flex;
+  flex-direction: column;
+}
