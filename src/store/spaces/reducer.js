@@ -4,10 +4,10 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_SPACE": {
+    case "spaces/spacesFetched": {
       return {
         ...state,
-        all: [...state.all, action.payload],
+        all: [...action.payload],
       }
     }
     default:

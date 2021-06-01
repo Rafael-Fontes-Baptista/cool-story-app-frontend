@@ -13,6 +13,7 @@ import { selectAppLoading } from "./store/appState/selectors"
 import { getUserWithStoredToken } from "./store/user/actions"
 import Spaces from "./pages/Spaces"
 import MySpaces from "./pages/MySpaces"
+import SpaceDetails from "./pages/SpaceDetails"
 
 function App() {
   const dispatch = useDispatch()
@@ -28,6 +29,7 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Switch>
+        <Route exact path="/spaces/:spaceId" component={SpaceDetails} />
         <Route exact path="/" component={Spaces} />
         <Route path="/my-spaces" component={MySpaces} />
         <Route path="/signup" component={SignUp} />
